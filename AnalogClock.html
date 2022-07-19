@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Analog Clock in JS</title>
+       <style>
+              html,body, .container 
+              {
+                     height: 100%;
+              }
+              .container 
+              {
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+              }
+              .clock 
+              {
+                     background-color: red;
+                     width: 400px;
+                     height: 400px;
+                     position: relative;
+              }
+              .clock img 
+              {
+                     position: absolute;
+                     top: 0px;
+                     left: 0px;
+              }
+              .clock::after 
+              {
+                     content: '';
+                     width: 30px;
+                     height: 30px;
+                     background-color:violet;
+                     position: absolute;
+                     border-radius: 100%;
+
+                     top: 50%;
+                     left: 50%;
+                     transform: translateX(-50%) translateY(-50%);
+                     
+              }
+             
+       </style>
+</head>
+<body>
+
+       <div class="container">
+              <div class="clock">
+                <img src="../Projects/resources/clock_face.jpg">
+                <img src="../Projects/resources/hour_hand.png" id="hours">
+                <img src="../Projects/resources/minute_hand.png" id="minutes">
+                <img id="seconds" src="../Projects/resources/second_hand.png">
+              </div>
+       </div>
+       
+
+       <script> 
+        
+         var H = document.getElementById('hours');
+         var M = document.getElementById('minutes');
+         var S = document.getElementById('seconds');
+
+         function Clock() 
+         {
+                var date = new Date();
+                var h = date.getHours() % 12;
+              //   document.writeln(h);
+                var m = date.getMinutes();
+              //   document.writeln(m);
+                var s = date.getSeconds();
+              //   document.writeln(s);
+
+
+              var hh = (h * 30) + (0.5 * m);
+              var mm = (m * 6) + (0.1 * s);  
+              var ss = s * 6;
+                
+
+                H.style.transform = 'rotate(' + hh +'deg)';
+                M.style.transform = 'rotate(' + mm +'deg)';
+                S.style.transform = 'rotate(' + ss +'deg)';
+
+                setTimeout(Clock,1000);
+
+         };
+         Clock();
+       </script>
+</body>
+</html>
