@@ -3,6 +3,10 @@ Analog Clock is a circular face clock with number 1 to 12 and it have two big ha
 
 Design.....
 
+Note: i will not create javascipte file separtely so don't confuse. i wil add <script></script> tages in html file.
+
+
+
 note : this in not a design i will create images with  analog clock 
  images description: 2 big hands and 1 small hands finally circle with 12 numbers.
 
